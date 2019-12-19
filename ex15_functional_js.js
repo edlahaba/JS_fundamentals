@@ -38,14 +38,15 @@ _.reduce = (object, callback, result) => {
 }
 
 _.curry = (callback) => {
-	const savedCallback = callback;
+  const savedCallback = callback;
   const savedArgs = [];
-	const savedStatus = function(args) {
-  	_.each(arguments, arg => {savedArgs.push(arg)});
+  const savedStatus = function(args) {
+    _.each(arguments, arg => {savedArgs.push(arg)});
     if (savedArgs.length == callback.length) return savedCallback(...savedArgs);
     return savedStatus;
   };
   return savedStatus;
 }
 
-
+//Currying example
+console.log(printed(1,2)(3));
