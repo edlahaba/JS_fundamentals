@@ -5,7 +5,7 @@ _.compose = (...objects) => {
 
   var comp = (...args) => {
     lastFunction = functionList.pop();
-    if (functionList.length == 0) return lastFunction(...args);
+    if (!functionList.length) return lastFunction(...args);
     return comp(lastFunction(...args))
   }
 
